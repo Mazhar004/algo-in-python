@@ -1,15 +1,14 @@
 class Node():
-    def __init__(self, val=None, next_address=None):
+    def __init__(self, val=None):
         '''
         Node for Unidirectional Linked List
         value        = Value for node 
-        next_address = Next node address
         '''
         self.val = val
-        self.next_address = next_address
+        self.next_address = None
 
 
-class LinkedList():
+class UniLinkedList():
     def __init__(self):
         '''
         Unidirectional Linked List
@@ -36,11 +35,10 @@ class LinkedList():
         Delete value from Linked List
         val = Find matching value in linked list to delete
         '''
-        prev, current = self.head, self.head
+        prev, current = None, self.head
         flag = 0
         while current:
             if current.val == val:
-                flag = 1
                 break
             prev, current = current, current.next_address
 
@@ -49,20 +47,21 @@ class LinkedList():
                 self.head = self.head.next_address
             else:
                 prev.next_address = current.next_address
+            flag = 1
 
         if flag:
             print('Value deleted\n')
         else:
             print("Value not found in the list!")
-        print(self)
+        self.traverse()
 
-    def __str__(self):
+    def traverse(self):
         '''
         Print all value of the Linked List
         '''
         data = ""
         temp = self.head
         while temp:
-            data += str(temp.val)+" "
+            print(temp.val, end=" ")
             temp = temp.next_address
-        return data
+        print("\n")
