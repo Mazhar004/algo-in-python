@@ -38,7 +38,6 @@ class BiLinkedList():
         val = Find matching value in linked list to delete
         '''
         current = self.head
-        flag = 0
 
         while current:
             if current.val == val:
@@ -55,9 +54,6 @@ class BiLinkedList():
                     current.next_address.prev_address = current.prev_address
                 else:
                     self.tail = current.prev_address
-            flag = 1
-
-        if flag:
             print('Value deleted\n')
         else:
             print("Value not found in the list!")
@@ -68,7 +64,6 @@ class BiLinkedList():
         Print all value of the Linked List
         reverse = Represent direction of list traversing
         '''
-        data = ""
         if reverse:
             temp = self.tail
             while temp:

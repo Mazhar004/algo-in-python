@@ -36,7 +36,6 @@ class UniLinkedList():
         val = Find matching value in linked list to delete
         '''
         prev, current = None, self.head
-        flag = 0
         while current:
             if current.val == val:
                 break
@@ -47,9 +46,6 @@ class UniLinkedList():
                 self.head = self.head.next_address
             else:
                 prev.next_address = current.next_address
-            flag = 1
-
-        if flag:
             print('Value deleted\n')
         else:
             print("Value not found in the list!")
@@ -59,7 +55,6 @@ class UniLinkedList():
         '''
         Print all value of the Linked List
         '''
-        data = ""
         temp = self.head
         while temp:
             print(temp.val, end=" ")
