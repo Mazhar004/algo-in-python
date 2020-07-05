@@ -22,8 +22,8 @@ class UniLinkedList():
         val = Value append in linked list at last position
         '''
         new_node = Node(val)
-        if self.head:
-            temp = self.head
+        temp = self.head
+        if temp:
             while temp.next_address:
                 temp = temp.next_address
             temp.next_address = new_node
