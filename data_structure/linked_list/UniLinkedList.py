@@ -46,6 +46,7 @@ class UniLinkedList():
                 self.head = self.head.next_address
             else:
                 prev.next_address = current.next_address
+            del current
             print('Value deleted\n')
         else:
             print("Value not found in the list!")

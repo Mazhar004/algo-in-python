@@ -54,6 +54,7 @@ class BiLinkedList():
                     current.next_address.prev_address = current.prev_address
                 else:
                     self.tail = current.prev_address
+            del current
             print('Value deleted\n')
         else:
             print("Value not found in the list!")
