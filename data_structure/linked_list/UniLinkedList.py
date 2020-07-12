@@ -2,7 +2,8 @@ class Node():
     def __init__(self, val=None):
         '''
         Node for Unidirectional Linked List
-        value        = Value for node 
+        val          = Value of the node
+        next_address = Address of next node linked with current node
         '''
         self.val = val
         self.next_address = None
@@ -12,14 +13,14 @@ class UniLinkedList():
     def __init__(self):
         '''
         Unidirectional Linked List
-        head = Linked list starting node (head)
+        head = Linked list starting node
         '''
         self.head = None
 
     def append(self, val):
         '''
         Append value in Linked List
-        val = Value append in linked list at last position
+        val = Value append in Linked list at last position
         '''
         new_node = Node(val)
         temp = self.head
@@ -33,7 +34,7 @@ class UniLinkedList():
     def delete(self, val):
         '''
         Delete value from Linked List
-        val = Find matching value in linked list to delete
+        val = Find matching value in Linked list to delete
         '''
         prev, current = None, self.head
         while current:
