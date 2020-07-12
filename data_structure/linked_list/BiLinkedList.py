@@ -2,7 +2,9 @@ class Node():
     def __init__(self, val=None):
         '''
         Node for Bidirectional Linked List
-        value        = Value for node
+        val          = Value of the node
+        prev_address = Address of previous node linked with current node
+        next_address = Address of next node linked with current node
         '''
         self.val = val
         self.prev_address = None
@@ -13,8 +15,8 @@ class BiLinkedList():
     def __init__(self):
         '''
         Biidirectional Linked List
-        head = Linked list starting node (head)
-        tail = Linked list ending node (tail)
+        head = Linked list starting node
+        tail = Linked list ending node
         '''
         self.head = None
         self.tail = None
@@ -22,7 +24,7 @@ class BiLinkedList():
     def append(self, val):
         '''
         Append value in Linked List
-        val = Value append in linked list at last position
+        val = Value append in Linked list at last position
         '''
         new_node = Node(val)
         if self.head:
@@ -35,7 +37,7 @@ class BiLinkedList():
     def delete(self, val):
         '''
         Delete value from Linked List
-        val = Find matching value in linked list to delete
+        val = Find matching value in Linked list to delete
         '''
         current = self.head
 
