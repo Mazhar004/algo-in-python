@@ -9,31 +9,35 @@ class Node():
         self.next = None
 
 
-class Stack():
+class Queue():
     def __init__(self):
         '''
-        Stack Last In First Out (LIFO)
+        Queue First In First Out (FIFO)
         head   = Linked list starting node
+        tail   = Linked list ending node
         length = Current length of Stack
         '''
         self.head = None
+        self.tail = None
         self.length = 0
 
-    def push(self, val):
+    def enqueue(self, val):
         '''
-        Push value in Stack
-        val = Value push in Stack
+        Push value in Queue
+        val = Value push in Queue
         '''
         new_node = Node(val)
         if self.length:
-            new_node.next = self.head
-        self.head = new_node
+            self.tail.next = new_node
+        else:
+            self.head = new_node
+        self.tail = new_node
         self.length += 1
 
-    def pop(self):
+    def dequeue(self):
         '''
-        Pop up(Return & remove) the top value of Stack
-        Top value means last pushed value in Stack
+        Pop up(Return & remove) the bottom value of Queue
+        Bottom value means first pushed value in Queue
         '''
         if self.length:
             val, temp = self.head.val, self.head.next
@@ -41,22 +45,14 @@ class Stack():
             self.head = temp
             self.length -= 1
             return val
-        return "Stack is empty!"
-
-    def peek(self):
-        '''
-        Peek up(Only return,not remove) the top value of Stack
-        '''
-        if self.length:
-            return self.head.val
-        return "Stack is empty!"
+        return "Queue is empty!"
 
     def __len__(self):
         '''
-        Magic function to print Stack length using len function
+        Magic function to print Queue length using len function
 
         Example:
-            var = Stack()
+            var = Queue()
             print(len(var))
         '''
         return self.length
