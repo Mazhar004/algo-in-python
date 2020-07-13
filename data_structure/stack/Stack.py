@@ -21,7 +21,7 @@ class Stack():
 
     def push(self, val):
         '''
-        Push value in Stack List
+        Push value in Stack
         val = Value push in Stack
         '''
         new_node = Node(val)
