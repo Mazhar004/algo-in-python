@@ -1,5 +1,5 @@
-class Node():
-    def __init__(self, val):
+class Node:
+    def __init__(self, val=None):
         '''
         Node of Linked List
         val  = Value for node
@@ -9,13 +9,13 @@ class Node():
         self.next = None
 
 
-class Queue():
+class CircularQueue:
     def __init__(self):
         '''
-        Queue First In First Out (FIFO)
+        Circular Queue First In First Out (FIFO)
         head   = Linked list starting node
         tail   = Linked list ending node
-        length = Current length of Queue
+        length = Current length of Circular Queue
         '''
         self.head = None
         self.tail = None
@@ -23,29 +23,35 @@ class Queue():
 
     def enqueue(self, val):
         '''
-        Push value in Queue
-        val = Value push in Queue
+        Push value in Circular Queue
+        val = Value push in Circular Queue
         '''
-        new_node = Node(val)
-        if self.length:
-            self.tail.next = new_node
+        node = Node(val)
+        if self.head:
+            node.next = self.tail.next
+            self.tail.next = node
+            self.tail = node
         else:
-            self.head = new_node
-        self.tail = new_node
+            self.head = node
+            self.tail = node
         self.length += 1
 
     def dequeue(self):
         '''
-        Pop up(Return & remove) the first value of Queue
-        Bottom value means first pushed value in Queue
+        Pop up(Return & remove) the bottom value of Circular Queue
+        Bottom value means first pushed value in Circular Queue
         '''
         if self.length:
             val, temp = self.head.val, self.head.next
             del self.head
             self.head = temp
+            self.tail.next = self.head
+            if self.head == self.tail:
+                self.head.next = None
+                self.tail.next = None
             self.length -= 1
             return val
-        return "Queue is empty!"
+        return ("Circular Queue is empty")
 
     def __len__(self):
         '''
